@@ -1,0 +1,318 @@
+@import "base/reset";
+@import "base/variables";
+@import "base/mixins";
+@import "base/fonts";
+%d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+%d-flex-between {
+    @extend %d-flex;
+    justify-content: space-between;
+}
+
+%d-flex-center {
+    @extend %d-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%background-image-options {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+header {
+    @include size(100%, 700px);
+    background-image: url("../images/background.png");
+    @extend %background-image-options;
+    nav {
+        @extend %d-flex-between;
+        padding: 48px 0;
+        .logo {
+            @include font($first-font-bold, 20px, 24px);
+            text-transform: uppercase;
+            color: $second-color;
+        }
+        .authorization {
+            @extend %d-flex-center;
+            @include font($first-font, 14px, 17px);
+            color: $second-color;
+            margin-top: -8px;
+            margin-right: 43px;
+            &__log-in {
+                margin-right: 20px;
+            }
+            &__sign-up {
+                border: 2px solid $second-color;
+                border-radius: 30px;
+                padding: 8px 17px;
+            }
+        }
+    }
+    .promo {
+        @extend %d-flex-center;
+        flex-direction: column;
+        &__title {
+            @include font($first-font-bold, 52px, 63px);
+            color: $second-color;
+            text-align: center;
+            margin: 99px 0 28px;
+        }
+        &__slogan {
+            @include font($second-font, 24px, 24px);
+            color: #f7f3f2;
+            margin-bottom: 33px;
+        }
+        &__button {
+            background-color: $first-color;
+            border: none;
+            border-radius: 40px;
+            @include font($first-font-bold, 14px, 17px);
+            color: $second-color;
+            padding: 12px 18px;
+        }
+    }
+}
+
+section {
+    padding-top: 89px;
+    @extend %d-flex-center;
+    h2 {
+        @include font($first-font-bold, 26px, 32px);
+        color: #444444;
+        margin-bottom: 35px;
+    }
+    .infos {
+        @extend %d-flex-between;
+        width: 100%;
+        .info-block {
+            @include size(300px, 400px);
+            @extend %background-image-options;
+            padding: 21px 25px;
+            @extend %d-flex;
+            flex-direction: column;
+            justify-content: end;
+            &_1 {
+                background-image: url("../images/step-1.png");
+            }
+            &_2 {
+                background-image: url("../images/step-2.png");
+            }
+            &_3 {
+                background-image: url("../images/step-3.png");
+            }
+            &__label {
+                @include size(70px, 20px);
+                border-radius: 40px;
+                background-color: $first-color;
+                text-transform: uppercase;
+                @include font($first-font, 10px, 20px);
+                letter-spacing: 2px;
+                color: $second-color;
+                text-align: center;
+            }
+            &__title {
+                @include font($first-font-bold, 24px, 26px);
+                color: $second-color;
+                margin-top: 22px;
+            }
+            &__description {
+                @include font($second-font, 14px, 14px);
+                color: #e3e3e3;
+                margin-top: 24px;
+            }
+        }
+    }
+    .partners {
+        @extend %d-flex-between;
+        width: 100%;
+        .partner-block {
+            @include size(221px, 224px);
+            text-align: center;
+            margin-bottom: 38px;
+            &__avatar {
+                @include size(120px, 120px);
+                border-radius: 50%;
+                margin: 0 auto 19px;
+                position: relative;
+            }
+            &__avatar::after {
+                content: "";
+                @include size(32px, 32px);
+                border-radius: 50%;
+                border: 4px solid $second-color;
+                position: absolute;
+                top: calc(100% - 36px);
+                left: calc(100% - 36px);
+                @extend %background-image-options;
+            }
+            &_1 > .partner-block__avatar {
+                background-image: url("../images/photo-1.png");
+            }
+            &_1 > .partner-block__avatar::after {
+                background-color: #ff4e50;
+                background-image: url("../images/music.png");
+            }
+            &_2 > .partner-block__avatar {
+                background-image: url("../images/photo-2.png");
+            }
+            &_2 > .partner-block__avatar::after {
+                background-color: #19d4ca;
+                background-image: url("../images/brush.png");
+            }
+            &_3 > .partner-block__avatar {
+                background-image: url("../images/photo-3.png");
+            }
+            &_3 > .partner-block__avatar::after {
+                background-color: #ffa710;
+                background-image: url("../images/camera.png");
+            }
+            &_4 > .partner-block__avatar {
+                background-image: url("../images/photo-4.png");
+            }
+            &_4 > .partner-block__avatar::after {
+                background-color: #667df3;
+                background-image: url("../images/airplane.png");
+            }
+            &__name {
+                @include font($first-font-bold, 14px, 17px);
+                margin-bottom: 21px;
+            }
+            &__bio {
+                @include font($second-font, 14px, 14px);
+                color: #666666;
+            }
+        }
+        &__button {
+            @include size(180px, 40px);
+            @include font($first-font-bold, 14px, 17px);
+            color: $first-color;
+            background: $second-color;
+            border: 2px solid $first-color;
+            border-radius: 40px;
+        }
+    }
+    .activities {
+        @extend %d-flex-between;
+        margin-bottom: -20px;
+        .activity-block {
+            @include size(300px, 310px);
+            @extend %d-flex-center;
+            border-radius: 4px;
+            position: relative;
+            margin-bottom: 20px;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: black;
+                opacity: 0.2;
+                z-index: 1;
+            }
+            &_1 {
+                background-image: url("../images/activity-1.png");
+            }
+            &_2 {
+                background-image: url("../images/activity-2.png");
+            }
+            &_3 {
+                background-image: url("../images/activity-3.png");
+            }
+            &_4 {
+                background-image: url("../images/activity-4.png");
+            }
+            &_5 {
+                @include size(620px, 310px);
+                background-image: url("../images/activity-5.png");
+            }
+            &_6 {
+                @include size(620px, 310px);
+                background-image: url("../images/activity-6.png");
+            }
+            &_7 {
+                background-image: url("../images/activity-7.png");
+            }
+            &__title {
+                @include font($first-font-bold, 22px, 27px);
+                color: $second-color;
+                text-align: center;
+                z-index: 3;
+            }
+        }
+    }
+    .search {
+        width: 100%;
+        @extend %d-flex-center;
+        margin: 17px 0 98px;
+        &__title {
+            @include font($second-font, 18px, 14px);
+            color: #666666;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        &__input {
+            @include size(299px, 40px);
+            border: 1px solid #d4d4d4;
+            border-radius: 3px;
+            padding: 14px;
+            @include font($second-font, 14px, 16px);
+            color: #999999;
+            margin-right: 7px;
+        }
+        &__button {
+            @include size(172px, 40px);
+            background-color: $first-color;
+            border: none;
+            border-radius: 40px;
+            @include font($first-font-bold, 14px, 17px);
+            color: $second-color;
+        }
+    }
+}
+
+footer {
+    border-top: 2px solid $first-color;
+    padding: 40px 0;
+    .container {
+        @extend %d-flex-between;
+    }
+    .footer-menu {
+        width: 550px;
+        @extend %d-flex-between;
+        h2 {
+            @include font($first-font-bold, 14px, 17px);
+            color: #444444;
+            margin-bottom: 11px;
+        }
+        .logo {
+            @include font($first-font, 16px, 20px);
+            text-transform: uppercase;
+            color: $first-color;
+        }
+        .navigation {
+            @include font($second-font, 14px, 26px);
+            color: #999999;
+        }
+    }
+    .copyright {
+        &__text {
+            @include font($first-font-bold, 10px, 12px);
+            text-transform: uppercase;
+            color: #cccccc;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+            text-align: end;
+        }
+    }
+}

@@ -35,7 +35,7 @@ header {
     @extend %background-image-options;
     nav {
         @extend %d-flex-between;
-        padding: 48px 0;
+        padding: 50px;
         .logo {
             @include font($first-font-bold, 20px, 24px);
             text-transform: uppercase;
@@ -46,7 +46,6 @@ header {
             @include font($first-font, 14px, 17px);
             color: $second-color;
             margin-top: -8px;
-            margin-right: 43px;
             &__log-in {
                 margin-right: 20px;
             }
@@ -60,6 +59,9 @@ header {
     .promo {
         @extend %d-flex-center;
         flex-direction: column;
+        &__logo {
+            display: none;
+        }
         &__title {
             @include font($first-font-bold, 52px, 63px);
             color: $second-color;
@@ -85,8 +87,10 @@ header {
 section {
     padding-top: 89px;
     @extend %d-flex-center;
+    flex-direction: column;
     h2 {
         @include font($first-font-bold, 26px, 32px);
+        text-align: center;
         color: #444444;
         margin-bottom: 35px;
     }
@@ -96,6 +100,7 @@ section {
         .info-block {
             @include size(300px, 400px);
             @extend %background-image-options;
+            border-radius: 4px;
             padding: 21px 25px;
             @extend %d-flex;
             flex-direction: column;
@@ -209,6 +214,7 @@ section {
             border-radius: 4px;
             position: relative;
             margin-bottom: 20px;
+            @extend %background-image-options;
             &:after {
                 content: "";
                 position: absolute;
@@ -313,6 +319,153 @@ footer {
             letter-spacing: 1px;
             margin-bottom: 7px;
             text-align: end;
+        }
+    }
+}
+
+@media screen and (max-width: 940px) {
+    .container {
+        width: 748px;
+    }
+
+    section {
+        h2 {
+            @include font($first-font-bold, 22px, 27px);
+        }
+
+        .infos {
+            .info-block {
+                @include size(236px, 400px);
+            }
+        }
+
+        .partners {
+            width: 492px;
+            .partner-block {
+                margin-bottom: 15px;
+            }
+        }
+
+        .activities {
+            .activity-block {
+                @include size(236px, 310px);
+
+                &_5, &_6 { 
+                    @include size(492px, 310px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 748px) {
+    .container {
+        width: 300px;
+    }
+
+    header {
+        height: 540px;
+
+        nav {
+            .logo {
+                display: none;
+            }
+            .authorization {
+                margin: 0 auto;
+            }
+        }
+
+        .promo {
+            &__logo {
+                display: block;
+                @include font($first-font-bold, 20px, 24px);
+                text-transform: uppercase;
+                color: $second-color;
+                margin-top: 75px;
+            }
+
+            &__title {
+                @include font($first-font-bold, 30px, 37px);
+                margin-top: 25px;
+            }
+
+            &__slogan {
+                @include font($second-font, 18px, 24px);
+            }
+        }
+    }
+
+    section {
+        padding-top: 35px;
+        h2 {
+            margin-bottom: 15px;
+        }
+        .infos {
+            margin-bottom: -10px;
+            .info-block {
+                @include size(100%, 240px);
+                margin-bottom: 10px;
+            }
+        }
+
+        .partners {
+            width: 100%;
+            justify-content: center;
+            .partner-block {
+                @include size(236px, auto);
+            }
+            &__button {
+                width: 95%;
+                margin-top: 25px;
+            }
+        }
+
+        .activities {
+            margin-bottom: -10px;
+            .activity-block {
+                @include size(100%, 120px);
+                margin-bottom: 10px;
+            }
+        }
+
+        .search {
+            margin-bottom: 40px;
+            text-align: center;
+
+            &__input {
+                margin: 0 auto 10px;
+                width: 95%;
+            }
+            &__button {
+                width: 95%;
+            }
+        }
+    }
+
+    footer {
+        padding: 20px 0;
+
+        .footer-menu {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+
+            .logo {
+                margin-bottom: 15px;
+            }
+            .navigation {
+                margin-bottom: 10px;
+                text-align: center;
+                ul > li {
+                    display: inline-block;
+                    padding: 2px 5px;
+                }
+            }
+        }
+
+        .copyright {
+            margin: 0 auto;
         }
     }
 }
